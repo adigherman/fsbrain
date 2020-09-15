@@ -46,7 +46,7 @@ before_install:
   - export PROJ_DIR=`basename $PWD`
   - fname=travis_helpers.sh
   - wget -O ${fname} http://bit.ly/travis_helpers
-  - cat ${fname}; source ${fname}; rm ${fname}
+#  - cat ${fname}; source ${fname}; rm ${fname}
   - cat DESCRIPTION
   - codename=`linux_codename`;
   - start_xvfb ;
@@ -63,7 +63,7 @@ before_install:
   - clang_cxx
   - export cmake_version="3.11"
   - cmake --version
-#  - x=`cmake_setup`; echo "${x}"; eval ${x};
+  - x=`cmake_setup`; echo "${x}"; eval ${x};
   - cmake --version
   - remove_neuroc_packages
   - cat DESCRIPTION
