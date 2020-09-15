@@ -46,17 +46,17 @@ before_install:
   - export PROJ_DIR=`basename $PWD`
   - fname=travis_helpers.sh
   - wget -O ${fname} http://bit.ly/travis_helpers
-#  - cat ${fname}; source ${fname}; rm ${fname}
+  - cat ${fname}; source ${fname}; rm ${fname}
   - cat DESCRIPTION
   - codename=`linux_codename`;
   - start_xvfb ;
   - export rver=`r_version`; echo $rver ;
   - x=`export_clang_cxx`; eval ${x}
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
-  - jags_install || true;
-  - if `need_v8`; then v8_install || true; fi
-  - dcmtk_install || true;
-  - gsl_install 2.1 || true ;
+#  - jags_install || true;
+ # - if `need_v8`; then v8_install || true; fi
+#  - dcmtk_install || true;
+#  - gsl_install 2.1 || true ;
   - echo "CC=${CC}, CXX=${CXX}, CXX1X=${CXX1X}"
   - echo "CXX1XSTD=${CXX1XSTD}, CXX11=${CXX11}"
   - echo "CXX1XSTD=${CXX1XSTD}, CXX11=${CXX11}"
@@ -80,10 +80,10 @@ before_install:
     R="travis_wait 100 ${x}" ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then if [ `need_hdf5` ]; then hdf5_install ;
     fi fi
-  - setup_python 3.6 false ;
-  - install_python_requirements ;
-  - R CMD javareconf || true;
-  - sudo R CMD javareconf || true;
+#  - setup_python 3.6 false ;
+#  - install_python_requirements ;
+#  - R CMD javareconf || true;
+#  - sudo R CMD javareconf || true;
 after_success: dump_logs
 after_failure: dump_logs
 before_deploy:
