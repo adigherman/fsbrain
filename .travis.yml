@@ -33,7 +33,7 @@ jobs:
     - r: devel
 env:
   global:
-    - RGL_USE_NULL=TRUE
+#    - RGL_USE_NULL=TRUE
     - PROJECT_NAME=neuroconductor-devel
     - DISPLAY=:99.0
     - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
@@ -80,7 +80,6 @@ before_install:
     R="travis_wait 100 ${x}" ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then if [ `need_hdf5` ]; then hdf5_install ;
     fi fi
-  - magick_install
   - setup_python 3.6 false ;
   - install_python_requirements ;
   - R CMD javareconf || true;
