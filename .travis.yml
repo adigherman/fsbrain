@@ -51,7 +51,7 @@ before_install:
   - codename=`linux_codename`;
   - start_xvfb ;
   - export rver=`r_version`; echo $rver ;
-  - Rscript -e "remove.packages('magick'); install.packages('magick')"
+  - Rscript -e "install.packages('magick')"
   - x=`export_clang_cxx`; eval ${x}
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
   - jags_install || true;
