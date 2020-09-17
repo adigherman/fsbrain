@@ -27,12 +27,12 @@ services:
 
 env:
   global:
-    - RGL_USE_NULL=TRUE
-#    - PROJECT_NAME=neuroconductor
-#    - DISPLAY=:99.0
-#    - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
-#    - _R_CHECK_FORCE_SUGGESTS_=false
-#    - CACHE_NAME="${TRAVIS_OS_NAME}-R-${TRAVIS_R_VERSION}"
+#    - RGL_USE_NULL=TRUE
+    - PROJECT_NAME=neuroconductor
+    - DISPLAY=:99.0
+    - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
+    - _R_CHECK_FORCE_SUGGESTS_=false
+    - CACHE_NAME="${TRAVIS_OS_NAME}-R-${TRAVIS_R_VERSION}"
 
 before_install:
   - sudo apt-get install -y mesa-common-dev libglu1-mesa-dev libmagick++-dev
