@@ -33,9 +33,19 @@ env:
     - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
     - _R_CHECK_FORCE_SUGGESTS_=false
     - CACHE_NAME="${TRAVIS_OS_NAME}-R-${TRAVIS_R_VERSION}"
-
 before_install:
-  - sudo apt-get install -y mesa-common-dev libglu1-mesa-dev libmagick++-dev
+  - if [ "$TRAVIS_DIST" = "xenial" ]; then sudo apt-get install -y libgit2-dev ; sudo apt-get install -y mesa-common-dev libglu1-mesa-dev libmagick++-dev ; fi
+  - ulimit -n 2048
+  - export PROJ_DIR=`basename $PWD`
+  - fname=travis_helpers.sh
+  - wget -O ${fname} http://bit.ly/travis_helpers
+  - cat ${fname}; source ${fname}; rm ${fname}
+  - cat DESCRIPTION
+  - codename=`linux_codename`;
+  - start_xvfb ;
+  - export rver=`r_version`; echo $rver ;
+  - echo $PATH
+  - Rscript -e ".libPaths(); install.packages('magick')"
 
 r_packages:
   - covr
