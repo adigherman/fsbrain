@@ -1,3 +1,22 @@
+warnings_are_errors: yes
+cache: packages
+bioc_required: yes
+cran: http://cran.rstudio.com
+dist: xenial
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libxml2-dev
+      - libfftw3-dev
+      - libgsl0-dev
+      - mesa-common-dev
+      - libglu1-mesa-dev
+      - devscripts
+      - libomp-dev
+      - libhdf5-serial-dev
+      - libhdf5-dev
+
 language: r
 r:
   - release
