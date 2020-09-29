@@ -16,6 +16,9 @@ addons:
       - libomp-dev
       - libhdf5-serial-dev
       - libhdf5-dev
+os:
+  - linux
+  - osx
 
 language: r
 r:
@@ -24,7 +27,7 @@ r:
 dist: xenial
 services:
   - xvfb
-
+osx_image: xcode9.4
 env:
   global:
 #    - RGL_USE_NULL=TRUE
