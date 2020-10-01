@@ -23,8 +23,6 @@ os:
 language: r
 r:
   - release
-
-dist: xenial
 services:
   - xvfb
 osx_image: xcode9.4
@@ -37,7 +35,7 @@ env:
     - _R_CHECK_FORCE_SUGGESTS_=false
     - CACHE_NAME="${TRAVIS_OS_NAME}-R-${TRAVIS_R_VERSION}"
 before_install:
-  - if [ "$TRAVIS_DIST" = "xenial" ]; then sudo apt-get install -y libgit2-dev ; sudo apt-get install -y mesa-common-dev libglu1-mesa-dev libmagick++-dev ; fi
+  - if [ "$TRAVIS_DIST" = "xenial" ]; then sudo apt-get install -y libgit2-dev ; sudo apt-get install -y libmagick++-dev ; fi
   - ulimit -n 2048
   - export PROJ_DIR=`basename $PWD`
   - fname=travis_helpers.sh
@@ -49,7 +47,7 @@ before_install:
   - export rver=`r_version`; echo $rver ;
   - Rscript -e ".libPaths(); install.packages('magick')"
   - x=`export_clang_cxx`; eval ${x}
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then no_open_mp ; brew cask install xquartz ; fi
   - jags_install || true;
   - if `need_v8`; then v8_install || true; fi
   - dcmtk_install || true;
